@@ -5,4 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Movie.create(title: "Sword Art Online Movie", director: "Tomohiko ito", release_year: 2017)
+Director.destroy_all
+Movie.destroy_all
+
+sao = Director.create(first_name: "Tomohiko", last_name: "ito")
+Movie.create(title: "Sword Art Online Movie", release_year: 2017,director_id: sao.id)	
+
+
+cp = Director.create(first_name: "Matt", last_name: "Ross")
+Movie.create(title: "Captain Fantastic", release_year: 2016,director_id: cp.id)	
